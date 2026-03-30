@@ -1,10 +1,5 @@
-import os
-from flask import jsonify
+from api.orchestrator import app
 
-@app.route("/api/debug")
-def debug_env():
-    return jsonify({
-        "client_id_exists": bool(os.getenv("SPOTIFY_CLIENT_ID")),
-        "client_secret_exists": bool(os.getenv("SPOTIFY_CLIENT_SECRET")),
-        "refresh_token_exists": bool(os.getenv("SPOTIFY_REFRESH_TOKEN"))
-    })
+# Vercel specifically looks for one of these two variable names. 
+# We are defining both just to make absolutely sure it can't miss it.
+application = app
