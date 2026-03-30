@@ -1,4 +1,4 @@
-from start import app
+from api.orchestrator import app as application
 
-# Vercel needs this
-app = app
+# Vercel expects "app" or "application"
+app = application
